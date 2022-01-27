@@ -1,18 +1,27 @@
 import React, {useState, useEffect } from 'react'
+import Challenge from './challenge';
 
 const wordleStyle = {
     margin: '5px auto',
     width: 500,
-    height: 100,
-    backgroundColor: 'gray',
+    backgroundColor: '#eee',
 };
 
 const Wordle = (props: { word: string }) => {
-    const [word, setWord] = useState(props.word)
+    const [word, setWord] = useState('')
+    const [challenges, setChallenges] = useState([])
+    useEffect(() => {
+        console.log('wordle.tsx', props)
+        setWord(props.word)
+    }, [props])
     return (
         <div className="Wordle" style={wordleStyle}>
-            {word}
-            {/* {[...Array(10).keys()].reverse().map(i => <Line key={i} buffer={buffer[i]} offset={offset} />)} */}
+            {challenges.map(c => {
+                <div className='Chalenges'>
+                    <Challenge word={c} />
+                </div>
+            })}
+            <Challenge word={word || '     '} />
         </div>
     );
 }
