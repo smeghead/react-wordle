@@ -2,22 +2,12 @@ import './App.css';
 
 import React, {useEffect, useState} from 'react'
 import Wordle from './wordle/wordle'
-
-const init = async function() {
-  let content = '';
-  await fetch('words.txt')
-  .then(response => response.text())
-  .then(data => {
-    content = data;
-  })
-  const words = content.split(/\n/)
-  return words[Math.floor(Math.random() * words.length)]
-}
+import Lottery from './wordle/lottery/lottery'
 
 const App = () => {
   const [word, setWord] = useState('')
   useEffect(() => {
-    init().then(w => setWord(w))
+    Lottery(w => setWord(w))
   }, [])
   return (
     <div className="App">
