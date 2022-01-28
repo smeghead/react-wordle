@@ -7,7 +7,6 @@ const challengeStyle = {
     justifyContent: 'center',
     margin: '5px',
     width: '100%',
-    backgroundColor: '#eee',
 }
 
 const judge = (index: number, char: string, word:string, judge: boolean) => {
@@ -29,11 +28,10 @@ const Challenge = (props: {word: string, input: string, judge?: boolean}) => {
     useEffect(() => {
         setChars(props.input.split(''))
     }, [props])
-    console.log(props, chars)
+
     return (
         <div className="Challenge" style={challengeStyle}>
             {chars.map((c, i) => {
-                console.log('[' + c + ']')
                 return <Char key={i} char={c} result={judge(i, c, props.word, props.judge ?? false)} />
             })}
             {[...Array(5 - chars.length).keys()].map((val, i) => {

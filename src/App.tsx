@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h2>Wordle</h2>
+      <h2>Wordle Sandbox</h2>
       <Wordle />
     </div>
   );
