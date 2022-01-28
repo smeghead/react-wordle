@@ -4,11 +4,13 @@ import React, {useEffect, useState} from 'react'
 import Wordle from './wordle/wordle'
 import Lottery from './wordle/lottery/lottery'
 
+
 const App = () => {
   const [word, setWord] = useState('')
   useEffect(() => {
     Lottery(w => setWord(w))
   }, [])
+
   return (
     <div className="App">
       <h2>Wordle</h2>
