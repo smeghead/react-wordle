@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react'
 import useKey from "@rooks/use-key";
 import Challenge from './challenge';
+import Lottery, {validateWord} from './lottery/lottery'
 
 const wordleStyle = {
     margin: '5px auto',
@@ -18,26 +19,40 @@ const getChars = () => {
     return chars
 }
   
-const Wordle = (props: { word: string }) => {
+const Wordle = () => {
     const [word, setWord] = useState('')
-    const [challenges, setChallenges] = useState([])
+    const [challenges, setChallenges] = useState<string[]>([])
     useEffect(() => {
-        console.log('wordle.tsx', props)
-        setWord(props.word)
-    }, [props])
-
+        Lottery(w => setWord(w))
+    }, [])
+    
     const [input, setInput] = useState('')
 
     const handler = (e: KeyboardEvent) => {
-        switch (e.key) {
+        const key = e.key.trim()
+        console.log(key)
+        switch (key) {
             case 'Backspace':
                 setInput(input.substring(0, input.length - 1))
                 break
             case 'Enter':
+                console.log('Enter', input)
+                if (input.length < 5) {
+                    return
+                }
+                if ( ! validateWord(input)) {
+                    setInput('')
+                    return
+                }
+                console.log('complete')
+                const challengesNew = Object.assign([], challenges)
+                challengesNew.push(input)
+                setChallenges(challengesNew)
+                setInput('')
                 break
             default:
                 if (input.length < 5) {
-                    setInput(input + e.key)
+                    setInput(input + key)
                 }
         }
         console.log(e)
@@ -46,11 +61,7 @@ const Wordle = (props: { word: string }) => {
 
     return (
         <div className="Wordle" style={wordleStyle}>
-            {challenges.map(c => {
-                <div className='Chalenges'>
-                    <Challenge input={c} word={word} />
-                </div>
-            })}
+            {challenges.map(c => <Challenge input={c} word={word} judge={true} />)}
             <Challenge input={input} word={word} />
         </div>
     );

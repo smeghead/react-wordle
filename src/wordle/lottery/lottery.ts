@@ -1,3 +1,5 @@
+let words: string[] = []
+
 const Lottery = async function (callback: (word: string) => void) {
     let content = '';
     await fetch('words.txt')
@@ -5,8 +7,13 @@ const Lottery = async function (callback: (word: string) => void) {
         .then(data => {
             content = data;
         })
-    const words = content.split(/\n/)
+    words = content.split(/\n/)
     callback(words[Math.floor(Math.random() * words.length)])
 }
+
+const validateWord = (check: string) => {
+    return words.includes(check)
+}
+export {validateWord}
 
 export default Lottery
