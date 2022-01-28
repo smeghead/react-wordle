@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import { isJSDocAugmentsTag } from 'typescript'
 import Char from './char'
 
 const challengeStyle = {
@@ -36,7 +35,7 @@ const Challenge = (props: {word: string, input: string, judge?: boolean}) => {
             })}
             {[...Array(5 - chars.length).keys()].map((val, i) => {
             return (
-                <Char key={i + chars.length} char={''} />
+                <Char key={i + chars.length + 1} char={''} />
             )})}
         </div>
     )

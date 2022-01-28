@@ -1,11 +1,9 @@
 import './App.css';
 
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Wordle from './wordle/wordle'
 
 const App = () => {
-  const [word, setWord] = useState('')
-
   return (
     <div className="App">
       <h2>Wordle Sandbox</h2>
