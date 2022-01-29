@@ -9,7 +9,6 @@ const App = () => {
       <h1>Wordle Sandbox</h1>
       <Wordle />
       <footer>
-        <p><a href="https://github.com/smeghead/react-wordle/issues" target="_blank">Github Issue</a></p>
         <p>&copy; <a href="https://twitter.com/smeghead" target="_blank">@smeghead</a></p>
       </footer>
     </div>
