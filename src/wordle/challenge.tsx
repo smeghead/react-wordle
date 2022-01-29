@@ -35,7 +35,7 @@ const Challenge = (props: {word: string, input: string, judge?: boolean}) => {
             })}
             {[...Array(5 - chars.length).keys()].map((val, i) => {
             return (
-                <Char key={i + chars.length + 1} char={''} />
+                <Char key={i + 100} char={''} />
             )})}
         </div>
     )

@@ -9,7 +9,7 @@ const wordleStyle = {
 
 const getChars = () => {
     let chars = []
-    for (let i = 'a'.charCodeAt(0); i < 'z'.charCodeAt(0); i++) {
+    for (let i = 'a'.charCodeAt(0); i <= 'z'.charCodeAt(0); i++) {
         chars.push(String.fromCodePoint(i))
     }
     chars.push('Enter')

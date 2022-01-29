@@ -19,3 +19,10 @@ docker-compose run --rm web sh -c 'yarn install'
 ```bash
 docker-compose up
 ```
+
+
+## 参考
+
+### 単語抽出のための元データ
+
+https://kujirahand.com/web-tools/EJDictFreeDL.php
