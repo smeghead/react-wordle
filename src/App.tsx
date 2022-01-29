@@ -10,6 +10,7 @@ const App = () => {
       <Wordle />
       <footer>
         <p>&copy; <a href="https://twitter.com/smeghead" target="_blank">@smeghead</a></p>
+        <p><a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Official Wordle</a></p>
       </footer>
     </div>
   );

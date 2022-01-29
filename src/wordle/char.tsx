@@ -29,9 +29,11 @@ const getBGColor = (result: string) => {
     }
 }
 
+const displayKeyboard = () => document.getElementById('hidden-text')?.focus();
+
 const Char = (props: {char: string, result?: string}) => {
     return (
-        <div className='Char' style={{...charStyle, backgroundColor: getBGColor(props.result ?? ''), color: getColor(props.result ?? '')}}>
+        <div className='Char' onClick={displayKeyboard} style={{...charStyle, backgroundColor: getBGColor(props.result ?? ''), color: getColor(props.result ?? '')}}>
             {props.char}
         </div>
     )
