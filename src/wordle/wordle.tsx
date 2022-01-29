@@ -56,7 +56,9 @@ const Wordle = () => {
                 }
         }
     }
-    useKey(getChars(), handler)
+    useKey(getChars(), handler, {
+        eventTypes: ["keydown"],
+    })
 
     return (
         <div className="Wordle" style={wordleStyle}>
