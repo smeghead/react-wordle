@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import useKey from "@rooks/use-key";
 import Challenge from './challenge';
 import Lottery, {validateWord} from './lottery/lottery'
@@ -21,6 +21,7 @@ const Wordle = () => {
     const [word, setWord] = useState('')
     const [challenges, setChallenges] = useState<string[]>([])
     const [complete, setComplete] = useState(false)
+
     useEffect(() => {
         Lottery(w => setWord(w))
     }, [])
@@ -56,9 +57,7 @@ const Wordle = () => {
                 }
         }
     }
-    useKey(getChars(), handler, {
-        eventTypes: ["keydown"],
-    })
+    useKey(getChars(), handler)
 
     return (
         <div className="Wordle" style={wordleStyle}>

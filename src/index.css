@@ -33,9 +33,3 @@ footer a:visited,
 footer a {
   color: #ccc;
 }
-
-input#hidden-text {
-  position: absolute;
-  top: -100px;
-
-}
