@@ -22,7 +22,13 @@ const judge = (index: number, char: string, word:string, judge: boolean) => {
     return 'fail'
 }
 
-const Challenge = (props: {word: string, input: string, judge?: boolean}) => {
+type Props = {
+    word: string;
+    input: string;
+    judge?: boolean;
+}
+
+const Challenge = (props: Props) => {
     const [chars, setChars] = useState(props.input.split(''))
     useEffect(() => {
         setChars(props.input.split(''))
