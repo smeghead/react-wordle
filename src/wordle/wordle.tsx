@@ -11,7 +11,7 @@ const wordleStyle = {
   
 const Wordle = () => {
     
-    const [word, setWord] = useState('')
+    const [word, setWord] = useState<string>('')
     const [challenges, setChallenges] = useState<string[]>([])
     const [complete, setComplete] = useState(false)
     
@@ -21,15 +21,12 @@ const Wordle = () => {
         lottery.lotteryWord(w => setWord(w))
     }, [])
     
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState<string>('')
     
     const keyboard = new KeyBoard(setInput, setChallenges, setComplete, lottery)
 
-    const handler = (e: KeyboardEvent) => {
-        const key = e.key.trim()
-        keyboard.process(key, word, input, challenges)
-    }
-    
+    const handler = (e: KeyboardEvent) => keyboard.process(e.key.trim(), word, input, challenges)
+
     useKey(keyboard.getChars(), handler)
 
     return (
@@ -41,4 +38,3 @@ const Wordle = () => {
 }
 
 export default Wordle;
-// vim: set expandtab ts=2 sts=2 sw=2 :

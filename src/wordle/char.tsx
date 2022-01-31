@@ -34,9 +34,16 @@ type Props = {
     result?: string;
 }
 
+const getStyle = (props: Props) => {
+    return {
+        ...charStyle,
+        backgroundColor: getBGColor(props.result ?? ''),
+        color: getColor(props.result ?? '')
+    }
+}
 const Char = (props: Props) => {
     return (
-        <div className='Char' style={{...charStyle, backgroundColor: getBGColor(props.result ?? ''), color: getColor(props.result ?? '')}}>
+        <div className='Char' style={getStyle(props)}>
             {props.char}
         </div>
     )
