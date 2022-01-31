@@ -1,6 +1,6 @@
 import Lottery from '../lottery/lottery'
 
-class KeyBoard {
+class Handler {
     setInput: (word: string) => void;
     setChallenges: (challenges: string[]) => void;
     setComplete: (complete: boolean) => void;
@@ -58,4 +58,4 @@ class KeyBoard {
     }
 }
 
-export default KeyBoard
+export default Handler

@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import useKey from "@rooks/use-key";
 import Challenge from './challenge';
 import Lottery from './lottery/lottery'
-import KeyBoard from './keyboard/keyboard'
+import Handler from './keyboard/handler'
+import Keyboard from './keyboard/keyboard'
 
 const wordleStyle = {
     margin: '5px auto',
@@ -23,16 +24,15 @@ const Wordle = () => {
     
     const [input, setInput] = useState<string>('')
     
-    const keyboard = new KeyBoard(setInput, setChallenges, setComplete, lottery)
+    const handler = new Handler(setInput, setChallenges, setComplete, lottery)
 
-    const handler = (e: KeyboardEvent) => keyboard.process(e.key.trim(), word, input, challenges)
-
-    useKey(keyboard.getChars(), handler)
+    useKey(handler.getChars(), (e: KeyboardEvent) => handler.process(e.key.trim(), word, input, challenges))
 
     return (
         <div className="Wordle" style={wordleStyle}>
             {challenges.map(c => <Challenge input={c} word={word} judge={true} />)}
             {complete === false && <Challenge input={input} word={word} />}
+            <Keyboard />
         </div>
     );
 }
