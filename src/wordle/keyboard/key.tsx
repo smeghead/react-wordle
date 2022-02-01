@@ -2,27 +2,27 @@ import React, {useState, useEffect} from 'react'
 
 const style = {
     display: 'inline-block',
-    width: '20px',
     padding: '10px',
     margin: '5px',
     borderRadius: '3px',
-    fontSize: '20px',
+    fontSize: '3vw',
     backgroundColor: '#eee',
     cursor: 'pointer',
 }
 type Props = {
     char: string;
     value?: string;
-    width?: number;
+    width?: string;
+    keyboardHandler: (key: string) => void;
 }
 const Key = (props: Props) => {
     const s = {
         ...style,
-        width: props.width ?? 20,
+        width: props.width ?? '2vw',
     }
-    const val = props.char ?? props.value
+    const val = props.value ?? props.char
 
-    const clickHandler = () => console.log(val)
+    const clickHandler = () => props.keyboardHandler(val)
     return (
         <div className="Key" onClick={clickHandler} style={s}>
             {props.char}
