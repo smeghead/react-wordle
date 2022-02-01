@@ -34,7 +34,7 @@ const Wordle = () => {
         <div className="Wordle" style={wordleStyle}>
             {challenges.map(c => <Challenge input={c} word={word} judge={true} />)}
             {complete === false && <Challenge input={input} word={word} />}
-            <Keyboard keyboardHandler={keyboardHandler} />
+            <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges}/>
         </div>
     );
 }
