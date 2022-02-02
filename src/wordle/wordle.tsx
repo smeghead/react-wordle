@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import useKey from "@rooks/use-key";
 import Challenge from './challenge';
 import Lottery from './lottery/lottery'
@@ -17,7 +17,7 @@ const Wordle = () => {
     const [complete, setComplete] = useState(false)
     
     const lottery = new Lottery()
-    
+
     useEffect(() => {
         lottery.lotteryWord(w => setWord(w))
     }, [])

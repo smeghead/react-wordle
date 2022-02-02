@@ -10,6 +10,7 @@ const style = {
     fontSize: '3vw',
     backgroundColor: '#eee',
     cursor: 'pointer',
+    maxWidth: '60px',
 }
 
 type Props = {
@@ -39,6 +40,7 @@ const Key = (props: Props) => {
                 if (c === challenge.substring(n, n + 1)) {
                     return c
                 }
+                return undefined
             })
         }).flat().filter(val => typeof val !== 'undefined')
         if (positionedChars.indexOf(val) > -1) {

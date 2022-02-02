@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Key from './key'
 
 const style = {
@@ -34,7 +34,7 @@ const Keyboard = (props: Props) => {
             <Key key="k" char="k" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="l" char="l" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <br />
-            <Key key="Enter" char="⏎" value={'Enter'} width={'10vw'} keyboardHandler={props.keyboardHandler} />
+            <Key key="Enter" char="⏎" value={'Enter'} width={'10vw'} keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="z" char="z" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="x" char="x" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="c" char="c" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
@@ -42,7 +42,7 @@ const Keyboard = (props: Props) => {
             <Key key="b" char="b" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="n" char="n" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="m" char="m" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
-            <Key key="Backspace" char="BS" value={'Backspace'} width={'10vw'} keyboardHandler={props.keyboardHandler} />
+            <Key key="Backspace" char="BS" value={'Backspace'} width={'10vw'} keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
         </div>
     )
 }
