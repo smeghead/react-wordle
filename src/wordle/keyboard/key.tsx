@@ -21,8 +21,6 @@ type Props = {
     challenges: string[];
 }
 const Key = (props: Props) => {
-    const colors = {
-    }
     const s = {
         ...style,
         width: props.width ?? '8vw',
@@ -35,11 +33,22 @@ const Key = (props: Props) => {
         const includeChars = chars.filter(c => props.word.indexOf(c) > -1)
         const notIncludeChars = chars.filter(c => props.word.indexOf(c) === -1)
 
+        const positionedChars = props.challenges.map(challenge => {
+            return Array.from(Array(5), (_, n) => n).map(n => {
+                const c = props.word.substring(n, n + 1)
+                if (c === challenge.substring(n, n + 1)) {
+                    return c
+                }
+            })
+        }).flat().filter(val => typeof val !== 'undefined')
+        if (positionedChars.indexOf(val) > -1) {
+            return setKeyStyle({...keyStyle, backgroundColor: '#6aaa64'})
+        }
         if (includeChars.indexOf(val) > -1) {
-            setKeyStyle({...keyStyle, backgroundColor: 'yellow'})
+            return setKeyStyle({...keyStyle, backgroundColor: '#c9b458'})
         }
         if (notIncludeChars.indexOf(val) > -1) {
-            setKeyStyle({...keyStyle, backgroundColor: 'darkgray'})
+            return setKeyStyle({...keyStyle, backgroundColor: '#787c7e'})
         }
     }, [props])
 
