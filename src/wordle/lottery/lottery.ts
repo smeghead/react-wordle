@@ -1,9 +1,8 @@
 let words: string[] = []
 
 class Lottery {
-    constructor() {
-    }
     async lotteryWord(callback: (word: string) => void) {
+        console.log('Lottery init')
         let content = '';
         await fetch('words.txt')
             .then(response => response.text())

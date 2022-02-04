@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React, {useState, useEffect} from 'react'
 import useKey from "@rooks/use-key";
 import Challenge from './challenge';
 import Lottery from './lottery/lottery'
@@ -17,7 +17,7 @@ const Wordle = () => {
     const [complete, setComplete] = useState(false)
     
     const lottery = new Lottery()
-
+    
     useEffect(() => {
         lottery.lotteryWord(w => setWord(w))
     }, [])
@@ -32,7 +32,7 @@ const Wordle = () => {
     
     return (
         <div className="Wordle" style={wordleStyle}>
-            {challenges.map(c => <Challenge input={c} word={word} judge={true} />)}
+            {challenges.map((c, n) => <Challenge key={n} input={c} word={word} judge={true} />)}
             {complete === false && <Challenge input={input} word={word} />}
             <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges}/>
         </div>
