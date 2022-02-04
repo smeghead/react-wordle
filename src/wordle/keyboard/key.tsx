@@ -56,7 +56,12 @@ const Key = (props: Props) => {
 
     const clickHandler = () => props.keyboardHandler(val)
     return (
-        <button className="Key" onClick={clickHandler} style={keyStyle}>
+        <button
+            role={'keyboard-key-' + val}
+            className="Key"
+            onClick={clickHandler}
+            style={keyStyle}
+        >
             {props.char}
         </button>
     )

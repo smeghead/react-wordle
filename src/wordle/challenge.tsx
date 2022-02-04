@@ -35,7 +35,11 @@ const Challenge = (props: Props) => {
     }, [props])
 
     return (
-        <div className="Challenge" style={challengeStyle}>
+        <div
+            role={'Challenge-' + props.judge}
+            className="Challenge"
+            style={challengeStyle}
+        >
             {chars.map((c, i) => {
                 return <Char key={i} char={c} result={judge(i, c, props.word, props.judge ?? false)} />
             })}
