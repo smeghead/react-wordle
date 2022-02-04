@@ -14,7 +14,6 @@ test('press keyboard a key.', () => {
         bubbles: true,
         cancelable: true,
     })
-    screen.debug()
     const challenge = screen.getByRole('Challenge-undefined');
     expect(challenge).toHaveTextContent('a');
 });
@@ -33,12 +32,12 @@ test('press keyboard a key 5times.', () => {
     expect(challenge).toHaveTextContent('aaaaa');
 });
 
-test('press keyboard a key 5times and press enter.', async () => {
+test('input world and press enter.', async () => {
     render(<Wordle />);
 
-    const aKey = screen.getByRole(/keyboard-key-a/)
-    'aaaaa'.split('').forEach(() => {
-        fireEvent.click(aKey, {
+    const aKey = 
+    'world'.split('').forEach((c) => {
+        fireEvent.click(screen.getByRole('keyboard-key-' + c), {
             bubbles: true,
             cancelable: true,
         })
@@ -47,8 +46,8 @@ test('press keyboard a key 5times and press enter.', async () => {
         bubbles: true,
         cancelable: true,
     })
-    screen.debug()
     await screen.findByRole('Challenge-true')
-    const challenge = screen.getByRole('Challenge-true');
-    expect(challenge).toHaveTextContent('aaaaa');
+    // screen.debug()
+    
+    expect(screen.getByRole('Challenge-true')).toHaveTextContent('world');
 });
