@@ -3,8 +3,8 @@ import React, {useState, useEffect} from 'react'
 const style = {
     display: 'inline-block',
     textAlign: 'center',
-    padding: '3vw 0',
-    margin: '1.8vw 0.4vw',
+    padding: '4vw 0',
+    margin: '1.8vw 0.5vw',
     borderWidth: '0px',
     borderRadius: '3px',
     fontSize: '3vw',

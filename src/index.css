@@ -33,3 +33,14 @@ footer a:visited,
 footer a {
   color: #ccc;
 }
+
+a.btn {
+  font-size: 5vw;
+  display: inline-block;
+  background-color: #33f;
+  color: #fff;
+  padding: 2vw 4vw;
+  margin-top: 5vw;
+  text-decoration: none;
+  border-radius: 1vw;
+}
