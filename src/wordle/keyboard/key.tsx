@@ -3,8 +3,8 @@ import React, {useState, useEffect} from 'react'
 const style = {
     display: 'inline-block',
     textAlign: 'center',
-    padding: '8px 0',
-    margin: '0.4vw',
+    padding: '3vw 0',
+    margin: '1.8vw 0.4vw',
     borderWidth: '0px',
     borderRadius: '3px',
     fontSize: '3vw',
@@ -62,7 +62,7 @@ const Key = (props: Props) => {
             onClick={clickHandler}
             style={keyStyle}
         >
-            {props.char}
+            {props.char.toUpperCase()}
         </button>
     )
 }

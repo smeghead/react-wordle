@@ -1,10 +1,13 @@
 import React from 'react'
 const charStyle = {
-    width: '20px',
-    height: '20px',
+    width: '8vw',
+    height: '8vw',
     border: '1px solid #333',
+    fontSize: '5vw',
     margin: '5px',
-    padding: '5px',
+    padding: '0px',
+    display: 'table',
+    verticalAlign: 'middle',
 }
 
 const getColor = (result: string) => {
@@ -44,7 +47,9 @@ const getStyle = (props: Props) => {
 const Char = (props: Props) => {
     return (
         <div className='Char' style={getStyle(props)}>
-            {props.char}
+            <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                {props.char.toUpperCase()}
+            </div>
         </div>
     )
 }
