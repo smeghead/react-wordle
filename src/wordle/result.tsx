@@ -12,7 +12,7 @@ const Result = (props: Props) => {
                 <a className="btn" href={locale.dictionaryFormat(props.word)} target="_blank">{locale.dictionaryLinkLabel(props.word)}</a>
             </div>
             <div>
-                <a className="btn" href="">Try again</a>
+                <a className="btn" href="">{locale.tryAgain}</a>
             </div>
         </div>
     )

@@ -8,9 +8,10 @@ const style = {
     borderWidth: '0px',
     borderRadius: '3px',
     fontSize: '3vw',
-    backgroundColor: '#eee',
+    backgroundColor: '#ccc',
     cursor: 'pointer',
     maxWidth: '60px',
+    fontWeight: 'bold',
 }
 
 type Props = {

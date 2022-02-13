@@ -4,6 +4,7 @@ export type LocaleSetting = {
     footer: JSX.Element;
     dictionaryLinkLabel: (word: string) => string;
     dictionaryFormat: (word: string) => string;
+    tryAgain: string;
     toggle: () => void;
 };
 
@@ -15,6 +16,7 @@ const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
         リロードすれば正解の単語も違う新しいゲームを開始します。</p>,
         dictionaryLinkLabel: (word) => word.toUpperCase() + 'を辞書で引く',
         dictionaryFormat: (word) => 'https://ejje.weblio.jp/content/' + word,
+        tryAgain: 'もう一回',
         toggle: () => {},
     },
     'en': {
@@ -24,6 +26,7 @@ const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
         If you reload, you will start a new game with a different correct word.</p>,
         dictionaryLinkLabel: (word) => word.toUpperCase() + ' in Dictionary',
         dictionaryFormat: (word) => 'https://www.ldoceonline.com/jp/dictionary/' + word,
+        tryAgain: 'Try Again',
         toggle: () => {},
     },
 }
