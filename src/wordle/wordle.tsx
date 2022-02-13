@@ -30,7 +30,7 @@ const Wordle = () => {
     useKey(handler.getChars(), (e: KeyboardEvent) => handler.process(e.key.trim(), word, input, challenges))
 
     const keyboardHandler = (key: string) => handler.process(key, word, input, challenges)
-    
+    console.log(word);
     return (
         <div className="Wordle" style={wordleStyle}>
             {challenges.map((c, n) => <Challenge key={n} input={c} word={word} judge={true} />)}

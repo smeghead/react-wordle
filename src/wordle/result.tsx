@@ -1,17 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import LocaleContext from '../LocaleContext'
 
 type Props = {
     word: string;
 }
 const Result = (props: Props) => {
-    const onClick = () => {
-        const link = 'https://www.ldoceonline.com/jp/dictionary/' + props.word
-        window.open(link, '_blank')
-    }
+    const locale = useContext(LocaleContext)
     return (
         <div className='Result'>
             <div>
-                <a className="btn" onClick={onClick} target="_blank">{props.word.toUpperCase()} in dictionary</a>
+                <a className="btn" href={locale.dictionaryFormat(props.word)} target="_blank">{locale.dictionaryLinkLabel(props.word)}</a>
             </div>
             <div>
                 <a className="btn" href="">Try again</a>

@@ -1,22 +1,18 @@
 import './App.css';
 
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import Wordle from './wordle/wordle'
+import LocaleContext, { LocaleContextProvider } from './LocaleContext'
+import Footer from './footer';
 
 const App = () => {
     return (
         <div className="App">
-            <h1>Wordle Sandbox</h1>
-            <Wordle />
-            <footer>
-                <p>
-                    何度でも試せるWordleです。<br />
-                    失敗回数制限がないので、正解するまで回答できます。<br />
-                    リロードすれば正解の単語も違う新しいゲームを開始します。<br />
-                </p>
-                <p>&copy; <a href="https://twitter.com/smeghead" target="_blank" rel="noreferrer">@smeghead</a></p>
-                <p><a href="https://www.powerlanguage.co.uk/wordle/" target="_blank" rel="noreferrer">Official Wordle</a></p>
-            </footer>
+            <LocaleContextProvider>
+                <h1>Wordle Sandbox</h1>
+                <Wordle />
+                <Footer />
+            </LocaleContextProvider>
         </div>
     );
 }
