@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import localeSetting from './localeSetting'
 import type { LocaleSetting } from './localeSetting'
 
-const currentLocale = navigator.language === 'ja' ? localeSetting.ja : localeSetting.en
+const currentLocale = (navigator.language ?? '').startsWith('ja') ? localeSetting.ja : localeSetting.en
 const LocaleContext = React.createContext(currentLocale)
 
 export const LocaleContextProvider = ({ children }) => {
     const [localeVal, setLocaleVal] = useState(() => {
-        return navigator.language === 'ja' ? 'ja' : 'en'
+        return (navigator.language ?? '').startsWith('ja') ? 'ja' : 'en'
     })
 
     const [setting, setSetting]  = useState<LocaleSetting>(localeSetting.en) //default value
