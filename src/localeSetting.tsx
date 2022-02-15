@@ -1,5 +1,6 @@
 
 export type LocaleSetting = {
+    title: string;
     label: 'English' | '日本語';
     footer: JSX.Element;
     dictionaryLinkLabel: (word: string) => string;
@@ -10,6 +11,7 @@ export type LocaleSetting = {
 
 const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
     'ja': {
+        title: 'WORDLE サンドボックス',
         label: 'English',
         footer: <p>何度でも試せるWordleです。<br/>
         失敗回数制限がないので、正解するまで回答できます。<br/>
@@ -20,6 +22,7 @@ const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
         toggle: () => {},
     },
     'en': {
+        title: 'Wordle Sandbox',
         label: '日本語',
         footer: <p>Wordle that you can try as many times as you like.<br/>
         There is no limit on the number of failures, so you can answer until you answer correctly.<br/>

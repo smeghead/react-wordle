@@ -1,9 +1,9 @@
-import './App.css';
+import './App.css'
 
-import React, {useContext, useEffect} from 'react'
+import React from 'react'
 import Wordle from './wordle/wordle'
-import LocaleContext, { LocaleContextProvider } from './LocaleContext'
-import Footer from './footer';
+import { LocaleContextProvider } from './LocaleContext'
+import Footer from './footer'
 
 const App = () => {
     return (
@@ -14,7 +14,7 @@ const App = () => {
                 <Footer />
             </LocaleContextProvider>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App

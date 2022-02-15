@@ -1,10 +1,10 @@
 import Lottery from '../lottery/lottery'
 
 class Handler {
-    setInput: (word: string) => void;
-    setChallenges: (challenges: string[]) => void;
-    setComplete: (complete: boolean) => void;
-    lottery: Lottery;
+    setInput: (word: string) => void
+    setChallenges: (challenges: string[]) => void
+    setComplete: (complete: boolean) => void
+    lottery: Lottery
 
     constructor(
         setInput: (word: string) => void,
@@ -19,7 +19,7 @@ class Handler {
     }
 
     getChars() {
-        let chars = []
+        const chars = []
         for (let i = 'a'.charCodeAt(0); i <= 'z'.charCodeAt(0); i++) {
             chars.push(String.fromCodePoint(i))
         }

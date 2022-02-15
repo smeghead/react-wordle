@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import useKey from "@rooks/use-key";
-import Challenge from './challenge';
+import useKey from '@rooks/use-key'
+import Challenge from './challenge'
 import Lottery from './lottery/lottery'
 import Handler from './keyboard/handler'
 import Keyboard from './keyboard/keyboard'
@@ -8,7 +8,7 @@ import Result from './result'
 
 const wordleStyle = {
     margin: '5px auto',
-};
+}
 
   
 const Wordle = () => {
@@ -37,7 +37,7 @@ const Wordle = () => {
             {complete && <Result word={word} />}
             <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges}/>
         </div>
-    );
+    )
 }
 
-export default Wordle;
+export default Wordle

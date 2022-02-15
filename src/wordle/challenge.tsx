@@ -44,9 +44,8 @@ const Challenge = (props: Props) => {
                 return <Char key={i} char={c} result={judge(i, c, props.word, props.judge ?? false)} />
             })}
             {[...Array(5 - chars.length).keys()].map((val, i) => {
-            return (
-                <Char key={i + 100} char={''} />
-            )})}
+                return <Char key={i + 100} char={''} />
+            })}
         </div>
     )
 }

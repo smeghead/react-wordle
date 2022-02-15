@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react"
+import React, { useContext } from 'react'
 import LocaleContext from './LocaleContext'
 
 const Footer = () => {
-    let locale = useContext(LocaleContext)
-    const changeLocale = (e) => {
-        e.preventDefault()
+    const locale = useContext(LocaleContext)
+    const changeLocale = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault()
         locale.toggle()
     }
     return (

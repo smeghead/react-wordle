@@ -3,11 +3,11 @@ let words: string[] = []
 class Lottery {
     async lotteryWord(callback: (word: string) => void) {
         console.log('Lottery init')
-        let content = '';
+        let content = ''
         await fetch('words.txt')
             .then(response => response.text())
             .then(data => {
-                content = data;
+                content = data
             })
         words = content.split(/\n/)
         callback(words[Math.floor(Math.random() * words.length)])

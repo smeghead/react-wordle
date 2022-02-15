@@ -30,7 +30,7 @@ const Key = (props: Props) => {
     const val = props.value ?? props.char
     const [keyStyle, setKeyStyle] = useState(s)
     useEffect(() => {
-        if ( ! props.challenges) return;
+        if ( ! props.challenges) return
         const chars = Array.from(new Set(props.challenges.join('').split(''))).sort()
         const includeChars = chars.filter(c => props.word.indexOf(c) > -1)
         const notIncludeChars = chars.filter(c => props.word.indexOf(c) === -1)
