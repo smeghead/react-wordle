@@ -45,15 +45,31 @@ a.btn {
   border-radius: 1vw;
 }
 
-.gakuburu {
-  display: inline-block;
-  animation: gakuburu .15s  infinite;
+.refuse > div.Char {
+  animation: refuse .15s  infinite;
 }
 
-@keyframes gakuburu {
+@keyframes refuse {
   0% {transform: translate(0px, 0px)}
   25% {transform: translate(5px, 0px)}
   50% {transform: translate(0px, 0px)}
   75% {transform: translate(-5px, 0px)}
   100% {transform: translate(0px, 0px)}
+}
+
+.Challenge .alert {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  z-index: 2;
+}
+.Challenge.alert .alert {
+  display: inline-block;
 }

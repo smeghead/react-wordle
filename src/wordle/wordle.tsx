@@ -24,13 +24,17 @@ const Wordle = () => {
     }, [])
     
     const [input, setInput] = useState<string>('')
-    const [jiggle, setJiggle] = useState<string>('')
+    const [failEffect, setFailEffect] = useState<string>('')
     useEffect(() => {
-        const id = setTimeout(() => setJiggle(''), 500)
-        return () => clearTimeout(id)
-    }, [jiggle])
+        const refuseId = setTimeout(() => setFailEffect(className => className.replace(/refuse/, '')), 500)
+        const alertId = setTimeout(() => setFailEffect(className => className.replace(/alert/, '')), 1000)
+        return () => {
+            clearTimeout(refuseId)
+            clearTimeout(alertId)
+        }
+    }, [failEffect])
     
-    const handler = new Handler(setInput, setChallenges, setComplete, setJiggle, lottery)
+    const handler = new Handler(setInput, setChallenges, setComplete, setFailEffect, lottery)
 
     useKey(handler.getChars(), (e: KeyboardEvent) => handler.process(e.key.trim(), word, input, challenges))
 
@@ -38,7 +42,7 @@ const Wordle = () => {
     return (
         <div className="Wordle" style={wordleStyle}>
             {challenges.map((c, n) => <Challenge key={n} input={c} word={word} judge={true} />)}
-            {complete === false && <Challenge input={input} word={word} jiggle={jiggle} />}
+            {complete === false && <Challenge input={input} word={word} failEffect={failEffect} />}
             {complete && <Result word={word} />}
             {/* eslint-disable-next-line react/jsx-key */}
             <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges} />

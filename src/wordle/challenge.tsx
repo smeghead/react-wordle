@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+import { relative } from 'node:path/win32'
 import React, {useEffect, useState} from 'react'
 import Char from './char'
 
@@ -6,6 +8,7 @@ const challengeStyle = {
     justifyContent: 'center',
     margin: '5px',
     width: '100%',
+    position: 'relative',
 }
 
 const judge = (index: number, char: string, word:string, judge: boolean) => {
@@ -26,7 +29,7 @@ type Props = {
     word: string;
     input: string;
     judge?: boolean;
-    jiggle?: string;
+    failEffect?: string;
 }
 
 const Challenge = (props: Props) => {
@@ -38,9 +41,10 @@ const Challenge = (props: Props) => {
     return (
         <div
             role={'Challenge-' + props.judge}
-            className={'Challenge ' + props.jiggle}
+            className={'Challenge ' + props.failEffect}
             style={challengeStyle}
         >
+            <div className="alert">Not in word list</div>
             {chars.map((c, i) => {
                 return <Char key={i} char={c} result={judge(i, c, props.word, props.judge ?? false)} />
             })}

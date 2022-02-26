@@ -41,7 +41,7 @@ class Handler {
                     return
                 }
                 if ( ! this.lottery.validateWord(input)) {
-                    this.setJiggle('gakuburu')
+                    this.setJiggle('refuse alert')
                     // this.setInput('')
                     return
                 }
