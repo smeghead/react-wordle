@@ -2,7 +2,7 @@
 
 ## Wordle Sandbox
 
-![Logo](public/wordle-sandbox.png)
+![Logo](public/images/wordle-sandbox-image.png)
 
 https://wordle-sandbox.link/
 
