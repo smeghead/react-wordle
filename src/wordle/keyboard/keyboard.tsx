@@ -1,7 +1,8 @@
 import React from 'react'
 import Key from './key'
+import * as CSS from 'csstype'
 
-const style = {
+const style: CSS.Properties = {
     marginTop: '50px',
 }
 

@@ -5,8 +5,9 @@ import Lottery from './lottery/lottery'
 import Handler from './keyboard/handler'
 import Keyboard from './keyboard/keyboard'
 import Result from './result'
+import * as CSS from 'csstype'
 
-const wordleStyle = {
+const wordleStyle: CSS.Properties = {
     margin: '5px auto',
 }
 

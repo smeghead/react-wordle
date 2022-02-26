@@ -2,8 +2,9 @@
 import { relative } from 'node:path/win32'
 import React, {useEffect, useState} from 'react'
 import Char from './char'
+import * as CSS from 'csstype'
 
-const challengeStyle = {
+const challengeStyle: CSS.Properties = {
     display: 'flex',
     justifyContent: 'center',
     margin: '5px',

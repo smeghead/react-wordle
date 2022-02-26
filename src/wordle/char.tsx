@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
-const charStyle = {
+import * as CSS from 'csstype'
+
+const charStyle: CSS.Properties = {
     width: '8vw',
     height: '8vw',
     border: '1px solid #333',
