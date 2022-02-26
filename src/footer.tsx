@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { useContext } from 'react'
 import LocaleContext from './LocaleContext'
 

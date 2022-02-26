@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import './App.css'
 
 import React from 'react'

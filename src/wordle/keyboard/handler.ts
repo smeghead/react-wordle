@@ -4,17 +4,20 @@ class Handler {
     setInput: (word: string) => void
     setChallenges: (challenges: string[]) => void
     setComplete: (complete: boolean) => void
+    setJiggle: (complete: string) => void
     lottery: Lottery
 
     constructor(
         setInput: (word: string) => void,
         setChallenges: (challenges: string[]) => void,
         setComplete: (complete: boolean) => void,
+        setJiggle: (jiggle: string) => void,
         lottery: Lottery
     ) {
         this.setInput = setInput
         this.setChallenges = setChallenges
         this.setComplete = setComplete
+        this.setJiggle = setJiggle
         this.lottery = lottery
     }
 
@@ -38,9 +41,11 @@ class Handler {
                     return
                 }
                 if ( ! this.lottery.validateWord(input)) {
-                    this.setInput('')
+                    this.setJiggle('gakuburu')
+                    // this.setInput('')
                     return
                 }
+                // eslint-disable-next-line no-case-declarations
                 const challengesNew = Object.assign([], challenges)
                 challengesNew.push(input)
                 this.setChallenges(challengesNew)

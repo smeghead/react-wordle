@@ -23,7 +23,7 @@ const Keyboard = (props: Props) => {
             <Key key="i" char="i" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="o" char="o" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="p" char="p" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
-            <br />
+            <br key="br1" />
             <Key key="a" char="a" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="s" char="s" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="d" char="d" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
@@ -33,7 +33,7 @@ const Keyboard = (props: Props) => {
             <Key key="j" char="j" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="k" char="k" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="l" char="l" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
-            <br />
+            <br key="br2" />
             <Key key="Enter" char="⏎" value={'Enter'} width={'10vw'} keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="z" char="z" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />
             <Key key="x" char="x" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />

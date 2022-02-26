@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable react/jsx-key */
+import React from 'react'
 
 export type LocaleSetting = {
     title: string;

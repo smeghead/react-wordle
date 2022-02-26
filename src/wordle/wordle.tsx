@@ -24,8 +24,13 @@ const Wordle = () => {
     }, [])
     
     const [input, setInput] = useState<string>('')
+    const [jiggle, setJiggle] = useState<string>('')
+    useEffect(() => {
+        const id = setTimeout(() => setJiggle(''), 500)
+        return () => clearTimeout(id)
+    }, [jiggle])
     
-    const handler = new Handler(setInput, setChallenges, setComplete, lottery)
+    const handler = new Handler(setInput, setChallenges, setComplete, setJiggle, lottery)
 
     useKey(handler.getChars(), (e: KeyboardEvent) => handler.process(e.key.trim(), word, input, challenges))
 
@@ -33,9 +38,10 @@ const Wordle = () => {
     return (
         <div className="Wordle" style={wordleStyle}>
             {challenges.map((c, n) => <Challenge key={n} input={c} word={word} judge={true} />)}
-            {complete === false && <Challenge input={input} word={word} />}
+            {complete === false && <Challenge input={input} word={word} jiggle={jiggle} />}
             {complete && <Result word={word} />}
-            <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges}/>
+            {/* eslint-disable-next-line react/jsx-key */}
+            <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges} />
         </div>
     )
 }

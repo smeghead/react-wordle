@@ -44,3 +44,16 @@ a.btn {
   text-decoration: none;
   border-radius: 1vw;
 }
+
+.gakuburu {
+  display: inline-block;
+  animation: gakuburu .15s  infinite;
+}
+
+@keyframes gakuburu {
+  0% {transform: translate(0px, 0px)}
+  25% {transform: translate(5px, 0px)}
+  50% {transform: translate(0px, 0px)}
+  75% {transform: translate(-5px, 0px)}
+  100% {transform: translate(0px, 0px)}
+}

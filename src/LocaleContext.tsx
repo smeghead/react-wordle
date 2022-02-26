@@ -5,7 +5,8 @@ import type { LocaleSetting } from './localeSetting'
 const currentLocale = (navigator.language ?? '').startsWith('ja') ? localeSetting.ja : localeSetting.en
 const LocaleContext = React.createContext(currentLocale)
 
-export const LocaleContextProvider = ({ children }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const LocaleContextProvider = ({ children }): JSX.Element => {
     const [localeVal, setLocaleVal] = useState(() => {
         return (navigator.language ?? '').startsWith('ja') ? 'ja' : 'en'
     })

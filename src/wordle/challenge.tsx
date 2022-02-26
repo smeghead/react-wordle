@@ -26,6 +26,7 @@ type Props = {
     word: string;
     input: string;
     judge?: boolean;
+    jiggle?: string;
 }
 
 const Challenge = (props: Props) => {
@@ -37,13 +38,13 @@ const Challenge = (props: Props) => {
     return (
         <div
             role={'Challenge-' + props.judge}
-            className="Challenge"
+            className={'Challenge ' + props.jiggle}
             style={challengeStyle}
         >
             {chars.map((c, i) => {
                 return <Char key={i} char={c} result={judge(i, c, props.word, props.judge ?? false)} />
             })}
-            {[...Array(5 - chars.length).keys()].map((val, i) => {
+            {Array.from(Array(5 - chars.length), (v, k) => k).map((val, i) => {
                 return <Char key={i + 100} char={''} />
             })}
         </div>

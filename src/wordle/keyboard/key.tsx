@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import * as CSS from 'csstype'
 
-const style = {
+const style: CSS.Properties = {
     display: 'inline-block',
     textAlign: 'center',
     padding: '4vw 0',
