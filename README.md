@@ -1,5 +1,11 @@
 # react-wordle
 
+## Wordle Sandbox
+
+![Logo](public/wordle-sandbox.png)
+
+https://wordle-sandbox.link/
+
 ## docker usage
 
 ### build
