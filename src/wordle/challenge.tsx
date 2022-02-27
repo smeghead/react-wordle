@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-key */
-import { relative } from 'node:path/win32'
 import React, {useEffect, useState} from 'react'
 import Char from './char'
 import * as CSS from 'csstype'
@@ -33,7 +32,7 @@ type Props = {
     failEffect?: string;
 }
 
-const Challenge = (props: Props) => {
+const Challenge = (props: Props): JSX.Element => {
     const [chars, setChars] = useState(props.input.split(''))
     useEffect(() => {
         setChars(props.input.split(''))

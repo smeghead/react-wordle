@@ -47,7 +47,7 @@ const getStyle = (props: Props) => {
         color: getColor(props.result ?? '')
     }
 }
-const Char = (props: Props) => {
+const Char = (props: Props): JSX.Element => {
     return (
         <div className='Char' style={getStyle(props)}>
             <div style={{display: 'table-cell', verticalAlign: 'middle'}}>

@@ -6,7 +6,7 @@ import Wordle from './wordle/wordle'
 import { LocaleContextProvider } from './LocaleContext'
 import Footer from './footer'
 
-const App = () => {
+const App = (): JSX.Element => {
     return (
         <div className="App">
             <LocaleContextProvider>

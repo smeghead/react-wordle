@@ -5,7 +5,7 @@ import LocaleContext from '../LocaleContext'
 type Props = {
     word: string;
 }
-const Result = (props: Props) => {
+const Result = (props: Props): JSX.Element => {
     const locale = useContext(LocaleContext)
     return (
         <div className='Result'>

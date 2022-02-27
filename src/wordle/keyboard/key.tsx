@@ -23,7 +23,7 @@ type Props = {
     word: string;
     challenges: string[];
 }
-const Key = (props: Props) => {
+const Key = (props: Props): JSX.Element => {
     const s = {
         ...style,
         width: props.width ?? '8vw',

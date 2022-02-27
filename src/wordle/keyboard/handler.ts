@@ -21,7 +21,7 @@ class Handler {
         this.lottery = lottery
     }
 
-    getChars() {
+    getChars(): string[] {
         const chars = []
         for (let i = 'a'.charCodeAt(0); i <= 'z'.charCodeAt(0); i++) {
             chars.push(String.fromCodePoint(i))
@@ -31,7 +31,7 @@ class Handler {
         return chars
     }
     
-    process(key: string, word: string, input: string, challenges: string[]) {
+    process(key: string, word: string, input: string, challenges: string[]): void {
         switch (key) {
             case 'Backspace':
                 this.setInput(input.substring(0, input.length - 1))

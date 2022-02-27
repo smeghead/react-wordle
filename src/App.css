@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+/* 画面が狭い場合は、vwをベースにサイズ指定していた箇所を、画面幅が600pxを超えたら固定にする。 */
+@media (min-width: 600px) {
+  .Wordle .Challenge div.Char {
+    font-size: 30px !important;
+    width: 47px !important;
+    height: 47px !important;
+  }
+  .Wordle .Keyboard .Key {
+    font-size: 18px !important;
+    width: 47px !important;
+    height: 68px !important;
+    padding: 23px 0px !important;
+    margin: 10px 3px !important;
+  }
+  .Result .btn {
+    border-radius: 6px !important;
+    font-size: 30px !important;
+    margin-top: 30px !important;
+    padding: 12px 24px !important;
+  }
+}

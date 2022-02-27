@@ -11,7 +11,7 @@ type Props = {
     word: string;
     challenges: string[];
 }
-const Keyboard = (props: Props) => {
+const Keyboard = (props: Props): JSX.Element => {
     return (
         <div className='Keyboard' style={style}>
             <Key key="q" char="q" keyboardHandler={props.keyboardHandler} word={props.word} challenges={props.challenges} />

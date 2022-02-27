@@ -12,7 +12,7 @@ const wordleStyle: CSS.Properties = {
 }
 
   
-const Wordle = () => {
+const Wordle = (): JSX.Element => {
     
     const [word, setWord] = useState<string>('')
     const [challenges, setChallenges] = useState<string[]>([])
