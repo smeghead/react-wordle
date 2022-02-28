@@ -11,18 +11,28 @@ const challengeStyle: CSS.Properties = {
     position: 'relative',
 }
 
-const judge = (index: number, char: string, word:string, judge: boolean) => {
+const judge = (word:string, input: string, judge: boolean): string[] => {
+    const judges: string[] = ['', '', '', '', '']
     if ( ! judge) {
         // 判定する指定が無い時は、空文字を返却する。
-        return ''
+        return judges
     }
-    if (word.substring(index, index + 1) === char) {
-        return 'correct'
-    }
-    if (word.split('').includes(char)) {
-        return 'include'
-    }
-    return 'fail'
+    const restChars: string[] = []
+    Array.from(Array(5), (v, k) => k).forEach((v, index) => {
+        const c = word.substring(index, index + 1)
+        if (c === input.substring(index, index + 1)) {
+            judges[index] =  'correct'
+        } else {
+            restChars.push(c)
+        }
+    })
+    Array.from(input).forEach((c, index) => {
+        if (judges[index] !== '') {
+            return
+        }
+        judges[index] = restChars.includes(c) ? 'include' : 'fail'
+    })
+    return judges
 }
 
 type Props = {
@@ -34,8 +44,10 @@ type Props = {
 
 const Challenge = (props: Props): JSX.Element => {
     const [chars, setChars] = useState(props.input.split(''))
+    const [judges, setJudges] = useState<string[]>([])
     useEffect(() => {
         setChars(props.input.split(''))
+        setJudges(judge(props.word, props.input, props.judge))
     }, [props])
 
     return (
@@ -46,7 +58,7 @@ const Challenge = (props: Props): JSX.Element => {
         >
             <div className="alert">Not in word list</div>
             {chars.map((c, i) => {
-                return <Char key={i} char={c} result={judge(i, c, props.word, props.judge ?? false)} />
+                return <Char key={i} char={c} result={judges[i]} />
             })}
             {Array.from(Array(5 - chars.length), (v, k) => k).map((val, i) => {
                 return <Char key={i + 100} char={''} />
