@@ -1,14 +1,15 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import Wordle from './wordle';
+import { render, screen, fireEvent } from '@testing-library/react'
+import React from 'react'
+import Wordle from './wordle'
 
 test('keyboard a key exists.', () => {
-    render(<Wordle />);
-    const aElement = screen.getByRole(/keyboard-key-a/);
-    expect(aElement).toHaveTextContent('a');
-});
+    render(<Wordle />)
+    const aElement = screen.getByRole(/keyboard-key-a/)
+    expect(aElement).toHaveTextContent('a')
+})
 
 test('press keyboard a key.', async () => {
-    render(<Wordle />);
+    render(<Wordle />)
 
     fireEvent.click(screen.getByRole(/keyboard-key-a/), {
         bubbles: true,

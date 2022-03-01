@@ -11,7 +11,7 @@ const challengeStyle: CSS.Properties = {
     position: 'relative',
 }
 
-const judge = (word:string, input: string, judge: boolean): string[] => {
+const judge = (word:string, input: string, judge?: boolean): string[] => {
     const judges: string[] = ['', '', '', '', '']
     if ( ! judge) {
         // 判定する指定が無い時は、空文字を返却する。
