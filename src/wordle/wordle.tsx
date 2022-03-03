@@ -34,8 +34,10 @@ const Wordle = (): JSX.Element => {
             clearTimeout(alertId)
         }
     }, [failEffect])
+
+    const [rollOpenClass, setRollOpenClass] = useState<string>('')
     
-    const handler = new Handler(setInput, setChallenges, setComplete, setFailEffect, lottery)
+    const handler = new Handler(setInput, setChallenges, setComplete, setFailEffect, setRollOpenClass, lottery)
 
     useKey(handler.getChars(), (e: KeyboardEvent) => handler.process(e.key.trim(), word, input, challenges))
 
@@ -43,7 +45,7 @@ const Wordle = (): JSX.Element => {
     return (
         <div className="Wordle" style={wordleStyle}>
             {challenges.map((c, n) => <Challenge key={n} input={c} word={word} judge={true} />)}
-            {complete === false && <Challenge input={input} word={word} failEffect={failEffect} />}
+            {complete === false && <Challenge input={input} word={word} failEffect={failEffect} rollOpenClass={rollOpenClass} />}
             {complete && <Result word={word} />}
             {/* eslint-disable-next-line react/jsx-key */}
             <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges} />

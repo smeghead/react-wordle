@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as CSS from 'csstype'
 
 const charStyle: CSS.Properties = {
@@ -38,6 +38,7 @@ const getBGColor = (result: string) => {
 type Props = {
     char: string;
     result?: string;
+    rollOpenClass?: string;
 }
 
 const getStyle = (props: Props) => {
@@ -47,9 +48,22 @@ const getStyle = (props: Props) => {
         color: getColor(props.result ?? '')
     }
 }
+const rollPeriod = 700
 const Char = (props: Props): JSX.Element => {
+    
+    const [hideJudge, setHideJudge] = useState<string>(() => typeof props.result === 'undefined' ? '' : 'hide-judge')
+    useEffect(() => {
+        if (props.rollOpenClass === 'roll') {
+            console.log('set hide timer')
+            const timer = setTimeout(() => {
+                console.log('set hide timer clear')
+                setHideJudge('')
+            }, rollPeriod / 2)
+            return () => clearTimeout(timer)
+        }
+    }, [props])
     return (
-        <div className='Char' style={getStyle(props)}>
+        <div className={'Char ' + props.rollOpenClass + ' ' + hideJudge} style={getStyle(props)}>
             <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
                 {props.char.toUpperCase()}
             </div>

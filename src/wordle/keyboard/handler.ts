@@ -4,7 +4,8 @@ class Handler {
     setInput: (word: string) => void
     setChallenges: (challenges: string[]) => void
     setComplete: (complete: boolean) => void
-    setJiggle: (complete: string) => void
+    setJiggle: (jiggle: string) => void
+    setRollOpenClass: (rollOpenClass: string) => void
     lottery: Lottery
 
     constructor(
@@ -12,12 +13,14 @@ class Handler {
         setChallenges: (challenges: string[]) => void,
         setComplete: (complete: boolean) => void,
         setJiggle: (jiggle: string) => void,
+        setRollOpenClass: (rollOpenClass: string) => void,
         lottery: Lottery
     ) {
         this.setInput = setInput
         this.setChallenges = setChallenges
         this.setComplete = setComplete
         this.setJiggle = setJiggle
+        this.setRollOpenClass = setRollOpenClass
         this.lottery = lottery
     }
 
@@ -30,8 +33,17 @@ class Handler {
         chars.push('Backspace')
         return chars
     }
+
+    setRollOpen(setRollOpenClass: (rollOpenClass: string) => void, next: () => void): void {
+        setRollOpenClass('roll')
+        setTimeout(next, 2300)
+    }
     
     process(key: string, word: string, input: string, challenges: string[]): void {
+        const setChallenges = this.setChallenges
+        const setComplete = this.setComplete
+        const setInput = this.setInput
+        const setRollOpenClass = this.setRollOpenClass
         switch (key) {
             case 'Backspace':
                 this.setInput(input.substring(0, input.length - 1))
@@ -45,15 +57,18 @@ class Handler {
                     // this.setInput('')
                     return
                 }
-                // eslint-disable-next-line no-case-declarations
-                const challengesNew = Object.assign([], challenges)
-                challengesNew.push(input)
-                this.setChallenges(challengesNew)
-                if (word === input) {
-                    this.setComplete(true)
-                    return
-                }
-                this.setInput('')
+                this.setRollOpen(this.setRollOpenClass, () => {
+                    // eslint-disable-next-line no-case-declarations
+                    const challengesNew = Object.assign([], challenges)
+                    challengesNew.push(input)
+                    setChallenges(challengesNew)
+                    if (word === input) {
+                        setComplete(true)
+                        return
+                    }
+                    setRollOpenClass('')
+                    setInput('')
+                })
                 break
             default:
                 if (input.length < 5) {

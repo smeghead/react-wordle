@@ -40,6 +40,7 @@ type Props = {
     input: string;
     judge?: boolean;
     failEffect?: string;
+    rollOpenClass?: string;
 }
 
 const Challenge = (props: Props): JSX.Element => {
@@ -48,17 +49,25 @@ const Challenge = (props: Props): JSX.Element => {
     useEffect(() => {
         setChars(props.input.split(''))
         setJudges(judge(props.word, props.input, props.judge))
+        if (props.judge) {
+            return
+        }
+        if (props.rollOpenClass !== '') {
+            Array.from(Array(5), (v, k) => k).forEach((i => {
+                setTimeout(() => setJudges(judge(props.word, props.input.substring(0, i + 1), true)), 450 * i)
+            }))
+        }
     }, [props])
 
     return (
         <div
             role={'Challenge-' + props.judge}
-            className={'Challenge ' + props.failEffect}
+            className={'Challenge ' + props.failEffect + ' ' + props.rollOpenClass}
             style={challengeStyle}
         >
             <div className="alert">Not in word list</div>
             {chars.map((c, i) => {
-                return <Char key={i} char={c} result={judges[i]} />
+                return <Char key={i} char={c} result={judges[i]} rollOpenClass={judges[i] !== '' ? 'roll' : ''}/>
             })}
             {Array.from(Array(5 - chars.length), (v, k) => k).map((val, i) => {
                 return <Char key={i + 100} char={''} />
