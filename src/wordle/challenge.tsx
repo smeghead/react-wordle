@@ -53,8 +53,9 @@ const Challenge = (props: Props): JSX.Element => {
             return
         }
         if (props.rollOpenClass !== '') {
+            const rollJudges = judge(props.word, props.input, true)
             Array.from(Array(5), (v, k) => k).forEach((i => {
-                setTimeout(() => setJudges(judge(props.word, props.input.substring(0, i + 1), true)), 450 * i)
+                setTimeout(() => setJudges([...rollJudges.slice(0, i + 1), '', '', '', '']), 450 * i)
             }))
         }
     }, [props])

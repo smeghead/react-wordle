@@ -54,9 +54,7 @@ const Char = (props: Props): JSX.Element => {
     const [hideJudge, setHideJudge] = useState<string>(() => typeof props.result === 'undefined' ? '' : 'hide-judge')
     useEffect(() => {
         if (props.rollOpenClass === 'roll') {
-            console.log('set hide timer')
             const timer = setTimeout(() => {
-                console.log('set hide timer clear')
                 setHideJudge('')
             }, rollPeriod / 2)
             return () => clearTimeout(timer)

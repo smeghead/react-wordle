@@ -36,7 +36,7 @@ class Handler {
 
     setRollOpen(setRollOpenClass: (rollOpenClass: string) => void, next: () => void): void {
         setRollOpenClass('roll')
-        setTimeout(next, 2300)
+        setTimeout(next, 450 * 4 + 700)
     }
     
     process(key: string, word: string, input: string, challenges: string[]): void {
