@@ -58,6 +58,8 @@ const Char = (props: Props): JSX.Element => {
                 setHideJudge('')
             }, rollPeriod / 2)
             return () => clearTimeout(timer)
+        } else {
+            setHideJudge('')
         }
     }, [props])
     return (
