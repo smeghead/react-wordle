@@ -1,4 +1,5 @@
 import Lottery from '../lottery/lottery'
+import settings from '../settings'
 
 class Handler {
     setInput: (word: string) => void
@@ -36,7 +37,7 @@ class Handler {
 
     setRollOpen(setRollOpenClass: (rollOpenClass: string) => void, next: () => void): void {
         setRollOpenClass('roll')
-        setTimeout(next, 450 * 4 + 700)
+        setTimeout(next, settings.rollInterval * 4 + settings.rollPeriod)
     }
     
     process(key: string, word: string, input: string, challenges: string[]): void {

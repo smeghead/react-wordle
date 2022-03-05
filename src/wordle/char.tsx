@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from 'react'
 import * as CSS from 'csstype'
+import settings from './settings'
 
 const charStyle: CSS.Properties = {
     width: '8vw',
@@ -49,7 +50,6 @@ const getStyle = (props: Props) => {
         color: getColor(props.result ?? '')
     }
 }
-const rollPeriod = 700
 const Char = (props: Props): JSX.Element => {
     
     const [hideJudge, setHideJudge] = useState<string>(() => props.judge ? '' : 'hide-judge')
@@ -58,7 +58,7 @@ const Char = (props: Props): JSX.Element => {
             // setHideJudge('hide-judge')
             const timer = setTimeout(() => {
                 setHideJudge('')
-            }, rollPeriod / 2)
+            }, settings.rollPeriod / 2)
             return () => clearTimeout(timer)
         }
     }, [props])

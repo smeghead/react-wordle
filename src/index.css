@@ -76,7 +76,7 @@ a.btn {
 
 .roll .roll {
   transform-style: preserve-3d;
-  animation: roll 0.7s linear;
+  animation: roll 0.5s linear;
 }
 
 @keyframes roll {

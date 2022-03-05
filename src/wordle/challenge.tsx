@@ -2,6 +2,7 @@
 import React, {useEffect, useReducer, useState} from 'react'
 import Char from './char'
 import * as CSS from 'csstype'
+import settings from './settings'
 
 const challengeStyle: CSS.Properties = {
     display: 'flex',
@@ -66,7 +67,7 @@ const Challenge = (props: Props): JSX.Element => {
                 return
             }
             Array.from(Array(5), (v, k) => k).forEach((i => {
-                setTimeout(() => dispatch({index: i, results: rollJudges}), 450 * i)
+                setTimeout(() => dispatch({index: i, results: rollJudges}), settings.rollInterval * i)
             }))
         }
     }, [props])
