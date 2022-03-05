@@ -5,7 +5,7 @@ const style: CSS.Properties = {
     display: 'inline-block',
     textAlign: 'center',
     padding: '4vw 0',
-    margin: '1.8vw 0.5vw',
+    margin: '1.8vw 0.3vw',
     borderWidth: '0px',
     borderRadius: '3px',
     fontSize: '3vw',
@@ -26,7 +26,7 @@ type Props = {
 const Key = (props: Props): JSX.Element => {
     const s = {
         ...style,
-        width: props.width ?? '8vw',
+        width: props.width ?? '8.4vw',
     }
     const val = props.value ?? props.char
     const [keyStyle, setKeyStyle] = useState(s)

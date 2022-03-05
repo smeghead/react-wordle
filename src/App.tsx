@@ -4,13 +4,14 @@ import './App.css'
 import React from 'react'
 import Wordle from './wordle/wordle'
 import { LocaleContextProvider } from './LocaleContext'
+import Header from './header'
 import Footer from './footer'
 
 const App = (): JSX.Element => {
     return (
         <div className="App">
             <LocaleContextProvider>
-                <h1>Wordle Sandbox</h1>
+                <Header />
                 <Wordle />
                 <Footer />
             </LocaleContextProvider>
