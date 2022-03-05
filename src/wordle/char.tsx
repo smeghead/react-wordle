@@ -39,6 +39,7 @@ type Props = {
     char: string;
     result?: string;
     rollOpenClass?: string;
+    judge: boolean;
 }
 
 const getStyle = (props: Props) => {
@@ -51,15 +52,14 @@ const getStyle = (props: Props) => {
 const rollPeriod = 700
 const Char = (props: Props): JSX.Element => {
     
-    const [hideJudge, setHideJudge] = useState<string>(() => typeof props.result === 'undefined' ? '' : 'hide-judge')
+    const [hideJudge, setHideJudge] = useState<string>(() => props.judge ? '' : 'hide-judge')
     useEffect(() => {
-        if (props.rollOpenClass === 'roll') {
+        if (hideJudge == 'hide-judge' && props.rollOpenClass === 'roll') {
+            // setHideJudge('hide-judge')
             const timer = setTimeout(() => {
                 setHideJudge('')
             }, rollPeriod / 2)
             return () => clearTimeout(timer)
-        } else {
-            setHideJudge('')
         }
     }, [props])
     return (

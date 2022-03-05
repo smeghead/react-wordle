@@ -80,10 +80,10 @@ const Challenge = (props: Props): JSX.Element => {
             <div className="alert">Not in word list</div>
             {chars.map((c, i) => {
                 const roll = props.judge ? '' : judges[i] !== '' ? 'roll' : ''
-                return <Char key={i} char={c} result={judges[i]} rollOpenClass={roll}/>
+                return <Char key={i} char={c} result={judges[i]} rollOpenClass={roll} judge={props.judge} />
             })}
             {Array.from(Array(5 - chars.length), (v, k) => k).map((val, i) => {
-                return <Char key={i + 100} char={''} />
+                return <Char key={i + 100} char={''} judge={props.judge} />
             })}
         </div>
     )
