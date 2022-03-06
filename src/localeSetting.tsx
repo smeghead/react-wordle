@@ -16,9 +16,9 @@ const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
     'ja': {
         title: 'WORDLE サンドボックス',
         label: 'English',
-        footer: <p>何度でも試せるWordleです。<br/>
-        失敗回数制限がないので、正解するまで回答できます。<br/>
-        リロードすれば正解の単語も違う新しいゲームを開始します。</p>,
+        footer: <p>何度でも試せる<a href="https://www.nytimes.com/games/wordle/index.html" rel="noreferrer" target="_blank">Wordle</a>クローンです。<br/>
+        チャレンジ回数制限がないので、正解するまで何度でもチャレンジできます。<br/>
+        リロードすれば、新しいゲームを開始します。</p>,
         dictionaryLinkLabel: (word) => word.toUpperCase() + 'を辞書で引く',
         dictionaryFormat: (word) => 'https://ejje.weblio.jp/content/' + word,
         tryAgain: 'もう一回',
@@ -27,9 +27,9 @@ const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
     'en': {
         title: 'Wordle Sandbox',
         label: '日本語',
-        footer: <p>Wordle that you can try as many times as you like.<br/>
+        footer: <p><a href="https://www.nytimes.com/games/wordle/index.html" rel="noreferrer" target="_blank">Wordle</a> clone that you can try as many times as you like.<br/>
         There is no limit on the number of failures, so you can answer until you answer correctly.<br/>
-        If you reload, you will start a new game with a different correct word.</p>,
+        If you reload, you will start a new game.</p>,
         dictionaryLinkLabel: (word) => word.toUpperCase() + ' in Dictionary',
         dictionaryFormat: (word) => 'https://www.ldoceonline.com/jp/dictionary/' + word,
         tryAgain: 'Try Again',

@@ -39,6 +39,9 @@
 
 /* 画面が狭い場合は、vwをベースにサイズ指定していた箇所を、画面幅が600pxを超えたら固定にする。 */
 @media (min-width: 600px) {
+  header a.lang img {
+    width: 48px;
+  }
   .Wordle .Challenge div.Char {
     font-size: 30px !important;
     width: 47px !important;
