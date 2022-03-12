@@ -46,7 +46,7 @@ const Wordle = (): JSX.Element => {
         <div className="Wordle" style={wordleStyle}>
             {challenges.map((c, n) => <Challenge key={n} input={c} word={word} judge={true} rollOpenClass={''} />)}
             {complete === false && <Challenge key={-1} input={input} word={word} judge={false} failEffect={failEffect} rollOpenClass={rollOpenClass} />}
-            {complete && <Result word={word} />}
+            {complete && <Result word={word} challenges={challenges} />}
             {/* eslint-disable-next-line react/jsx-key */}
             <Keyboard keyboardHandler={keyboardHandler} word={word} challenges={challenges} />
         </div>

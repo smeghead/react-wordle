@@ -3,6 +3,7 @@ import React, {useEffect, useReducer, useState} from 'react'
 import Char from './char'
 import * as CSS from 'csstype'
 import settings from './settings'
+import { judge } from './judge'
 
 const challengeStyle: CSS.Properties = {
     display: 'flex',
@@ -12,29 +13,6 @@ const challengeStyle: CSS.Properties = {
     position: 'relative',
 }
 
-const judge = (word:string, input: string, judge: boolean): string[] => {
-    const judges: string[] = ['', '', '', '', '']
-    if ( ! judge) {
-        // 判定する指定が無い時は、空文字を返却する。
-        return judges
-    }
-    const restChars: string[] = []
-    Array.from(Array(5), (v, k) => k).forEach((v, index) => {
-        const c = word.substring(index, index + 1)
-        if (c === input.substring(index, index + 1)) {
-            judges[index] =  'correct'
-        } else {
-            restChars.push(c)
-        }
-    })
-    Array.from(input).forEach((c, index) => {
-        if (judges[index] !== '') {
-            return
-        }
-        judges[index] = restChars.includes(c) ? 'include' : 'fail'
-    })
-    return judges
-}
 const reducer = (state: string[], action:{index?: number, results: string[]}) => {
     if (typeof action.index === 'undefined') {
         return action.results
@@ -53,7 +31,6 @@ type Props = {
 
 const Challenge = (props: Props): JSX.Element => {
     const [chars, setChars] = useState(props.input.split(''))
-    // const [judges, setJudges] = useState<string[]>([])
     const [judges, dispatch] = useReducer(reducer, ['', '', '', '', ''])
     useEffect(() => {
         setChars(props.input.split(''))
@@ -66,9 +43,9 @@ const Challenge = (props: Props): JSX.Element => {
             if (JSON.stringify(judges) === JSON.stringify(rollJudges)) {
                 return
             }
-            Array.from(Array(5), (v, k) => k).forEach((i => {
+            Array.from(Array(5), (v, k) => k).forEach(i => {
                 setTimeout(() => dispatch({index: i, results: rollJudges}), settings.rollInterval * i)
-            }))
+            })
         }
     }, [props])
 

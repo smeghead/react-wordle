@@ -10,6 +10,8 @@ export type LocaleSetting = {
     dictionaryFormat: (word: string) => string;
     tryAgain: string;
     toggle: () => void;
+    shareButtonLabel: string;
+    copiedMessage: string;
 };
 
 const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
@@ -23,6 +25,8 @@ const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
         dictionaryFormat: (word) => 'https://ejje.weblio.jp/content/' + word,
         tryAgain: 'もう一回',
         toggle: () => {},
+        shareButtonLabel: 'Share',
+        copiedMessage: '結果をクリップボードにコピーしました',
     },
     'en': {
         title: 'Wordle Sandbox',
@@ -34,6 +38,8 @@ const localeSetting: {'ja': LocaleSetting, 'en': LocaleSetting} = {
         dictionaryFormat: (word) => 'https://www.ldoceonline.com/jp/dictionary/' + word,
         tryAgain: 'Try Again',
         toggle: () => {},
+        shareButtonLabel: 'Share',
+        copiedMessage: 'copied the result to clipboard.',
     },
 }
 
