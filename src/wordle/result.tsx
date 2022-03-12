@@ -12,8 +12,6 @@ const Result = (props: Props): JSX.Element => {
 
     const shareHandler = (e: React.MouseEvent<HTMLAnchorElement>): void  => {
         e.preventDefault()
-        console.log(props.word)
-        console.log(props.challenges)
         const challenges = props.challenges.map(input => {
             const judges = judge(props.word, input, true)
             const results = judges.map(result => {
