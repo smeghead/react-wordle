@@ -26,14 +26,24 @@ const Result = (props: Props): JSX.Element => {
             })
             return results.join('')
         })
-        console.log(challenges.join('\n'))
         const message = `Wordle Sandbox ${challenges.length}/∞
 ${challenges.join('\n')}
 https://wordle-sandbox.link/
 `
-        if(navigator.clipboard){
-            navigator.clipboard.writeText(message)
-            alert(locale.copiedMessage)
+        const shareInfo = {
+            title: 'Wordle Sandbox',
+            text: message,
+            utl: 'https://wordle-sandbox.link/',
+        }
+        if (typeof navigator.share !== 'undefined') {
+            navigator.share(shareInfo)
+                .then(() => console.log('share done'))
+                .catch((error) => console.log('share failed.', error))
+        } else {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(message)
+                alert(locale.copiedMessage)
+            }
         }
     }
     return (
