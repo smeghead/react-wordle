@@ -17,11 +17,11 @@ const Result = (props: Props): JSX.Element => {
             const results = judges.map(result => {
                 switch (result) {
                     case 'correct':
-                        return '🟩'
+                        return '\u{1F7E9}'
                     case 'include':
-                        return '🟨'
+                        return '\u{1F7E8}'
                     case 'fail':
-                        return '⬜'
+                        return '\u{2B1C}\u{FE0F}'
                 }
             })
             return results.join('')
