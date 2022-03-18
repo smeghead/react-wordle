@@ -104,5 +104,6 @@ a.btn {
 }
 .Challenge .Char.hide-judge {
   color: #333 !important;
+  border-color: #333 !important;
   background-color: white !important;
 }
