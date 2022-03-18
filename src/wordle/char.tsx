@@ -8,7 +8,7 @@ const charStyle: CSS.Properties = {
     height: '8vw',
     border: '1px solid #333',
     fontSize: '5vw',
-    margin: '5px',
+    margin: '2px',
     padding: '0px',
     display: 'table',
     verticalAlign: 'middle',
@@ -23,7 +23,6 @@ const getColor = (result: string) => {
     }
 }
 const getBGColor = (result: string) => {
-
     switch (result) {
         case 'correct':
             return '#6aaa64'
@@ -33,6 +32,18 @@ const getBGColor = (result: string) => {
             return '#787c7e'
         default:
             return '#fff'
+    }
+}
+const getBorder = (result: string) => {
+    switch (result) {
+        case 'correct':
+            return '#6aaa64'
+        case 'include':
+            return '#c9b458'
+        case 'fail':
+            return '#787c7e'
+        default:
+            return '#333'
     }
 }
 
@@ -47,7 +58,8 @@ const getStyle = (props: Props) => {
     return {
         ...charStyle,
         backgroundColor: getBGColor(props.result ?? ''),
-        color: getColor(props.result ?? '')
+        color: getColor(props.result ?? ''),
+        borderColor: getBorder(props.result ?? ''),
     }
 }
 const Char = (props: Props): JSX.Element => {

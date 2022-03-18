@@ -8,7 +8,7 @@ import { judge } from './judge'
 const challengeStyle: CSS.Properties = {
     display: 'flex',
     justifyContent: 'center',
-    margin: '5px',
+    margin: '2px',
     width: '100%',
     position: 'relative',
 }
