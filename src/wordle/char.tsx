@@ -8,6 +8,7 @@ const charStyle: CSS.Properties = {
     height: '8vw',
     border: '1px solid #333',
     fontSize: '5vw',
+    fontWeight: 'bold',
     margin: '2px',
     padding: '0px',
     display: 'table',
